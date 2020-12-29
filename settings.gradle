@@ -1,0 +1,3 @@
+rootProject.name = "AudioFocusPlayer"
+include ':app'
+include ':audio_focus'
