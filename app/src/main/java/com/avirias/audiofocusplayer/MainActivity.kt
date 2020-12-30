@@ -25,12 +25,16 @@ class MainActivity : AppCompatActivity() {
 
         //
         val audioFocusPlayer = AudioFocusPlayer(this)
+            .apply {
+                screenOnWhilePlaying = true
+            }
 
         //
         audioFocusPlayer.setDataSource(ringtoneUri)
 
         playButton.setOnClickListener {
             audioFocusPlayer.play()
+
 
         }
 

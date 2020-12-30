@@ -36,6 +36,23 @@ class AudioFocusPlayer(private val context: Context) {
         set(value) {
             mediaPlayer.preferredDevice = value
         }
+    var screenOnWhilePlaying: Boolean = false
+        set(value) {
+            mediaPlayer.setScreenOnWhilePlaying(value)
+        }
+
+    fun onComplete(callback: (AudioFocusPlayer) -> Unit) {
+        mediaPlayer.setOnCompletionListener { callback.invoke(this) }
+    }
+
+    fun onError(callback: (AudioFocusPlayer,Int,Int) -> Boolean) {
+        mediaPlayer.setOnErrorListener { _, what, extra -> callback(this,what,extra) }
+    }
+
+    fun onSeekComplete(callback: (AudioFocusPlayer) -> Unit) {
+        mediaPlayer.setOnSeekCompleteListener { callback(this) }
+    }
+
 
 
     fun setDataSource(datasource: Uri) {
