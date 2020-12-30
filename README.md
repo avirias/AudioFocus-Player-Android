@@ -1,3 +1,4 @@
+
 # AudioFocus-Player-Android
 [ ![Download](https://api.bintray.com/packages/avirias/audiofocus/com.avirias.audiofocus/images/download.svg)](https://bintray.com/avirias/audiofocus/com.avirias.audiofocus/_latestVersion)
 
@@ -33,4 +34,6 @@ audioFocusPlayer.play();
 
 // Pause the Media 
 audioFocusPlayer.pause();
+
+
 
