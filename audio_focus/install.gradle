@@ -1,0 +1,39 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.avirias.audiofocus'
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                groupId 'com.avirias.audiofocus'
+                artifactId 'audiofocus'
+                name 'audiofocus'
+                description 'MediaPlayer with Audio Focus'
+                url 'https://github.com/avirias/AudioFocus-Player-Android'
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'avirias'
+                        name 'Avinash Kumar'
+                        email 'avirias@live.com'
+                    }
+                }
+
+                scm {
+                    connection 'https://github.com/avirias/AudioFocus-Player-Android.git'
+                    developerConnection 'https://github.com/avirias/AudioFocus-Player-Android.git'
+                    url 'https://github.com/avirias/AudioFocus-Player-Android'
+                }
+            }
+        }
+    }
+}
