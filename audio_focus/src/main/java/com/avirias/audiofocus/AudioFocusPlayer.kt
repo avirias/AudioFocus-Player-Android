@@ -1,10 +1,7 @@
 package com.avirias.audiofocus
 
 import android.content.Context
-import android.media.AudioAttributes
-import android.media.AudioFocusRequest
-import android.media.AudioManager
-import android.media.MediaPlayer
+import android.media.*
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
@@ -18,6 +15,27 @@ class AudioFocusPlayer(private val context: Context) {
 
     val isPlaying: Boolean
         get() = mediaPlayer.isPlaying
+
+    val duration: Int
+        get() = mediaPlayer.duration
+
+    val currentPosition: Int
+        get() = mediaPlayer.currentPosition
+
+    var playbackParams: PlaybackParams
+        get() = mediaPlayer.playbackParams
+        set(value) {
+            mediaPlayer.playbackParams = value
+        }
+
+    val trackInfo: Array<out MediaPlayer.TrackInfo>
+        get() = mediaPlayer.trackInfo
+
+    var preferredDevice: AudioDeviceInfo
+        get() = mediaPlayer.preferredDevice
+        set(value) {
+            mediaPlayer.preferredDevice = value
+        }
 
 
     fun setDataSource(datasource: Uri) {
@@ -66,7 +84,7 @@ class AudioFocusPlayer(private val context: Context) {
 
     private val focusRequest = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN).run {
         setAudioAttributes(AudioAttributes.Builder().run {
-            setUsage(AudioAttributes.USAGE_GAME)
+            setUsage(AudioAttributes.USAGE_MEDIA)
             setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
             build()
         })
